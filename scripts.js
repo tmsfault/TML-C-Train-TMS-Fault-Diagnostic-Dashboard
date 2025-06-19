@@ -22,33 +22,33 @@ let darkMode = localStorage.getItem('darkMode') || 'disabled';
 const faultNoPrefixes = {};
 
 let circuitDiagrams = {
-  'TMS': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/TMS.pdf',
-  'CAB': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/CAB.pdf',
-  'VOBC': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/VOBC.pdf',
-  'BRAKE': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/BRAKE.pdf',
-  'CI': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/CI.pdf',
-  'APS': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/APS.pdf',
-  'DCU U': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/DCU.pdf',
-  'DCU D': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/DCU.pdf',
-  'VAC1': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/VAC.pdf',
-  'VAC2': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/VAC.pdf',
-  'MC': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/PIS.pdf',
-  'RADIO': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/RADIO.pdf',
-  'ETC': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/ETC.pdf',
-  'HADS': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/HADS.pdf',
-  'ORIS': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/ORIS.pdf',
-  'SMD': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/SMD.pdf',
-  'DVAU': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/DVAU.pdf',
-  'VBC': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/PIS.pdf',
-  'TNI': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/PIS.pdf',
-  'DI': 'https://tmsfault.github.io/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/circuits/PIS.pdf',
+  'TMS': 'circuits/TMS.pdf',
+  'CAB': 'circuits/CAB.pdf',
+  'VOBC': 'circuits/VOBC.pdf',
+  'BRAKE': 'circuits/BRAKE.pdf',
+  'CI': 'circuits/CI.pdf',
+  'APS': 'circuits/APS.pdf',
+  'DCU U': 'circuits/DCU.pdf',
+  'DCU D': 'circuits/DCU.pdf',
+  'VAC1': 'circuits/VAC.pdf',
+  'VAC2': 'circuits/VAC.pdf',
+  'MC': 'circuits/PIS.pdf',
+  'RADIO': 'circuits/RADIO.pdf',
+  'ETC': 'circuits/ETC.pdf',
+  'HADS': 'circuits/HADS.pdf',
+  'ORIS': 'circuits/ORIS.pdf',
+  'SMD': 'circuits/SMD.pdf',
+  'DVAU': 'circuits/DVAU.pdf',
+  'VBC': 'circuits/PIS.pdf',
+  'TNI': 'circuits/PIS.pdf',
+  'DI': 'circuits/PIS.pdf',
 };
 
 initData();
 
 function initData() {
   showSpinner();
-  fetch('https://raw.githubusercontent.com/tmsfault/TML-C-Train-TMS-Fault-Diagnostic-Dashboard/main/fault_data.csv')
+  fetch('fault_data.csv')
     .then(response => response.text())
     .then(csvData => {
       const csvRows = csvData.split('\n');
@@ -821,12 +821,11 @@ function showNote() {
     ` },
     { title: 'Car Types', content: `
       <ul>
-        <li><strong>Tc1</strong>: Central Unit 1</li>
-        <li><strong>Tc2</strong>: Central Unit 2</li>
-        <li><strong>Mp</strong>: Mp1, Mp2 car</li>
-        <li><strong>MW</strong>: MW1, MW2 car</li>
-        <li><strong>HMp</strong>: HMp car</li>
-        <li><strong>HT</strong>: HT car</li>
+        <li><strong>Tc</strong>: Trailer car with driving cab</li>
+        <li><strong>Mp</strong>: Motor car with pantograph</li>
+        <li><strong>MW</strong>: Motor car with wheelchair</li>
+        <li><strong>HMp</strong>: Motor car with pantograph and hostler panel</li>
+        <li><strong>HT</strong>: Trailer car with hostler panel</li>
       </ul>
     ` },
     { title: 'Fault Codes', content: `
